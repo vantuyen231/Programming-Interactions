@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -12,5 +13,26 @@ public class MenuManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad( Instance );
+    }
+
+    public void LoadSceneString( string scene)
+    {
+        SceneManager.LoadScene(scene);
+        gameObject.SetActive(false);
+    }
+
+    public void LoadLevelIndex(int indexLevel)
+    {
+        SceneManager.LoadScene( indexLevel );
+        gameObject.SetActive( false );
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
