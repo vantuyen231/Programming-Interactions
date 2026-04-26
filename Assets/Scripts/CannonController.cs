@@ -5,13 +5,28 @@ using UnityEngine.UIElements;
 public class CannonController : MonoBehaviour
 {
     private SimpleControls _simpleControls;
+    [Header("AimBarrel")]
     [SerializeField] protected Transform barrel;
+    [SerializeField] protected Vector2 _aimDirection = Vector2.zero;
+    [SerializeField] protected float rotationSpeed = 10f;
+    [SerializeField] protected float aimMaxRotation = 10f;
+    [SerializeField] protected float aimMinRotation = -10f;
+
+    [Header("TurnCannon")]
+    [SerializeField] protected Vector2 _turnDirection;
+    [SerializeField] protected float turnSpeed = 30f;
+    [SerializeField] protected float turnMaxRotation = 30f;
+    [SerializeField] protected float turnMinRotation = -30f;
+
 
 
     private void Awake()
     {
         _simpleControls = new SimpleControls();
         _simpleControls.gameplay.fire.performed += ctx => DoFire();
+        _turnDirection = transform.localEulerAngles;
+        turnMaxRotation += _turnDirection.y;
+        turnMinRotation += _turnDirection.y;
     }
 
     private void OnEnable()
@@ -28,13 +43,24 @@ public class CannonController : MonoBehaviour
     {
         Vector2 move = _simpleControls.gameplay.move.ReadValue<Vector2>();
         Debug.Log(move);
-        Aim(move.y);
-        
+        this.Aim(move.y);
+        this.Turn(move.x);
     }
 
     private void Aim(float aimDirection)
     {
 
+        float aimAmout =_aimDirection.x + aimDirection * rotationSpeed * Time.deltaTime;
+        _aimDirection.x = Mathf.Clamp(aimAmout,aimMinRotation,aimMaxRotation);
+
+        barrel.localEulerAngles = _aimDirection;
+    }
+
+    private void Turn(float turnDirection)
+    {
+        float turnAmout = _turnDirection.y + turnDirection * turnSpeed * Time.deltaTime;
+        _turnDirection.y = Mathf.Clamp(turnAmout,turnMinRotation,turnMaxRotation);
+        transform.localEulerAngles = _turnDirection;
     }
 
     private void DoFire()
