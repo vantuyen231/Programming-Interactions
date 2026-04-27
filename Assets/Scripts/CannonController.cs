@@ -50,7 +50,7 @@ public class CannonController : MonoBehaviour
     private void Update()
     {
         Vector2 move = _simpleControls.gameplay.move.ReadValue<Vector2>();
-        Debug.Log(move);
+        //Debug.Log(move);
         this.Aim(move.y);
         this.Turn(move.x);
     }
