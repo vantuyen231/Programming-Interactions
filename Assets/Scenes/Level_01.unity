@@ -6928,9 +6928,9 @@ MonoBehaviour:
   wheelRearLeft: {fileID: 185465753}
   bullet: {fileID: 1196744780447740, guid: 65b22875f82135b43abdb115c7a6b345, type: 3}
   firePoint: {fileID: 1172047025}
-  speedBullet: 50
-  timeFire: 2
+  bulletSpeed: 50
   cdFire: 0
+  timeFire: 2
 --- !u!4 &397460513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501404751446666, guid: 68a39471bcf807f45aace3b120f318f0, type: 3}

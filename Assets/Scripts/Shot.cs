@@ -2,38 +2,27 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
-    //[SerializeField] protected float force = 10f;
-    //private Rigidbody rb;
-
-    //private void Update()
-    //{
-    //    rb = GetComponent<Rigidbody>();
-    //    rb.AddForce(transform.forward * force, ForceMode.Impulse);
-
-    //    Destroy(gameObject, 5f);
-    //}
-
-    [SerializeField] protected float timeLife = 4f;
-    [SerializeField] protected GameObject explosionprefabs;
-    [SerializeField] protected float _explosionForce = 10f;
-    [SerializeField] protected float _explosionRadius = 5f;
-    [SerializeField] protected float _explosionUpWard = 1f;
-
+    [SerializeField] protected float timeLife = 5f;
+    [SerializeField] protected GameObject _explosion;
+    [SerializeField] protected float explosionDamge = 10f;
+    [SerializeField] protected float explosionRadius = 5f;
+    [SerializeField] protected float upWrand = 1f;
 
     private void Update()
     {
-        //Destroy(gameObject,timeLife);
+        //Destroy(gameObject, timeLife);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        var explosion = Instantiate(explosionprefabs,transform.position,transform.rotation);
-        var rbExplostion = Physics.OverlapSphere(collision.contacts[0].point, _explosionRadius);
-        foreach(var rb in rbExplostion)
+
+        var explosion = Instantiate(_explosion, collision.contacts[0].point,transform.rotation);
+        var _radiusExplosion = Physics.OverlapSphere(collision.contacts[0].point, explosionRadius);
+        foreach(var rb in _radiusExplosion)
         {
             if (rb.CompareTag("Target"))
             {
-                rb.GetComponent<Rigidbody>().AddExplosionForce(_explosionForce, collision.contacts[0].point, _explosionRadius, _explosionUpWard, ForceMode.Impulse);
+                rb.GetComponent<Rigidbody>().AddExplosionForce(explosionDamge,collision.contacts[0].point,explosionRadius,upWrand,ForceMode.Impulse);
             }
         }
         Destroy(gameObject);

@@ -29,9 +29,10 @@ public class CannonController : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] protected GameObject bullet;
     [SerializeField] protected Transform firePoint;
-    [SerializeField] protected float speedBullet = 50f;
-    [SerializeField] protected float timeFire = 2f;
+    [SerializeField] protected float bulletSpeed = 50f;
     [SerializeField] protected float cdFire = 0f;
+    [SerializeField] protected float timeFire = 2f;
+
 
 
     private void Awake()
@@ -87,15 +88,12 @@ public class CannonController : MonoBehaviour
 
     private void DoFire()
     {
-
         if(cdFire >= timeFire)
         {
             cdFire = 0;
-            var bulletSpawn = Instantiate(bullet, firePoint.position, firePoint.rotation);
-            var rbBullet = bulletSpawn.GetComponent<Rigidbody>();
-            rbBullet.AddForce(bulletSpawn.transform.forward * speedBullet, ForceMode.Impulse);
+            var spawnBullet = Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
+            var rbBullet = spawnBullet.GetComponent<Rigidbody>();
+            rbBullet.AddForce(firePoint.transform.forward * bulletSpeed, ForceMode.Impulse);
         }
-
-        
     }
 }
