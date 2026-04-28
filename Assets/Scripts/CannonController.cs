@@ -26,12 +26,17 @@ public class CannonController : MonoBehaviour
     [SerializeField] protected Transform wheelRearLeft;
 
 
+    [Header("Bullet")]
+    [SerializeField] protected GameObject bullet;
+    [SerializeField] protected Transform firePoint;
+    [SerializeField] protected float speedBullet = 50f;
+    [SerializeField] protected float timeFire = 2f;
+    [SerializeField] protected float cdFire = 0f;
 
 
     private void Awake()
     {
         _simpleControls = new SimpleControls();
-        _simpleControls.gameplay.fire.performed += ctx => DoFire();
         _turnDirection = transform.localEulerAngles;
         turnMaxRotation += _turnDirection.y;
         turnMinRotation += _turnDirection.y;
@@ -39,7 +44,8 @@ public class CannonController : MonoBehaviour
 
     private void OnEnable()
     {
-        _simpleControls.Enable();
+        _simpleControls.Enable(); 
+        _simpleControls.gameplay.fire.performed += ctx => { DoFire(); };
     }
 
     private void OnDisable()
@@ -53,6 +59,7 @@ public class CannonController : MonoBehaviour
         //Debug.Log(move);
         this.Aim(move.y);
         this.Turn(move.x);
+        cdFire += Time.deltaTime;
     }
 
     private void Aim(float aimDirection)
@@ -77,12 +84,18 @@ public class CannonController : MonoBehaviour
         wheelRearRight.localEulerAngles = -_wheelRotation;
     }
 
-    private void Roll(float roll)
-    {
 
-    }
     private void DoFire()
     {
-        Debug.Log("fire");
+
+        if(cdFire >= timeFire)
+        {
+            cdFire = 0;
+            var bulletSpawn = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            var rbBullet = bulletSpawn.GetComponent<Rigidbody>();
+            rbBullet.AddForce(bulletSpawn.transform.forward * speedBullet, ForceMode.Impulse);
+        }
+
+        
     }
 }

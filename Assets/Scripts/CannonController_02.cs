@@ -3,6 +3,7 @@ using UnityEngine;
 public class CannonController_02 : MonoBehaviour
 {
     private SimpleControls _simpleControls2;
+    [SerializeField] protected bool isClamp = true;
     [Header("Barrel")]
     [SerializeField] private Transform barrel2;
     [SerializeField] protected Vector2 _aimDirection2 = Vector2.zero;
@@ -59,7 +60,16 @@ public class CannonController_02 : MonoBehaviour
     private void Turn(float turnDirection2)
     {
         float scaleTurn = _turnCannon.y + turnDirection2 * turnSpeed2 * Time.deltaTime;
-        _turnCannon.y = Mathf.Clamp(scaleTurn, turnBarrelMin, turnBarrelMax);
+        if (isClamp)
+        {
+            _turnCannon.y = Mathf.Clamp(scaleTurn, turnBarrelMin, turnBarrelMax);
+
+        }
+        else
+        {
+            _turnCannon.y = scaleTurn;
+        }
+
         transform.localEulerAngles = _turnCannon;
 
         wheelRotation.x = _turnCannon.y;

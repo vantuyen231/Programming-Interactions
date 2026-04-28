@@ -1145,6 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652ca6c0612851e4ba9ee4bdb5532449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CannonController_02
+  isClamp: 0
   barrel2: {fileID: 1624533348}
   _aimDirection2: {x: 0, y: 0}
   aimSpeed2: 10
