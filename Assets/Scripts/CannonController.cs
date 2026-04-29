@@ -32,6 +32,7 @@ public class CannonController : MonoBehaviour
     [SerializeField] protected float bulletSpeed = 50f;
     [SerializeField] protected float cdFire = 0f;
     [SerializeField] protected float timeFire = 2f;
+    [SerializeField] protected float projectileForce = 3f;
 
 
 
@@ -93,6 +94,7 @@ public class CannonController : MonoBehaviour
             cdFire = 0;
             var spawnBullet = Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
             var rbBullet = spawnBullet.GetComponent<Rigidbody>();
+            rbBullet.AddTorque(Random.insideUnitSphere.normalized * projectileForce, ForceMode.Impulse);
             rbBullet.AddForce(firePoint.transform.forward * bulletSpeed, ForceMode.Impulse);
         }
     }

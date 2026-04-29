@@ -25,6 +25,15 @@ public class CannonController_02 : MonoBehaviour
     [SerializeField] protected Transform wheel2;
     [SerializeField] protected Transform wheel3;
     [SerializeField] protected Transform wheel4;
+
+    [Header("Fire")]
+    [SerializeField] protected Transform firePoint2;
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected float torQueForce = 3f;
+    [SerializeField] protected float canFire = 2f;
+    [SerializeField] protected float cdFire = 0f;
+
+
     private void Awake()
     {
         _simpleControls2 = new SimpleControls();
@@ -36,6 +45,7 @@ public class CannonController_02 : MonoBehaviour
     private void OnEnable()
     {
         _simpleControls2.Enable();
+        _simpleControls2.gameplay.fire.performed += ctx => Fire();
     }
 
     private void OnDisable()
@@ -48,6 +58,7 @@ public class CannonController_02 : MonoBehaviour
         Vector2 move2 = _simpleControls2.gameplay.move.ReadValue<Vector2>();
         this.Aim2(move2.y);
         this.Turn(move2.x);
+        cdFire += Time.deltaTime;
     }
 
     private void Aim2(float aimDirection2)
@@ -79,5 +90,20 @@ public class CannonController_02 : MonoBehaviour
         wheel2.localEulerAngles = wheelRotation2;
         wheel3.localEulerAngles = -wheelRotation2;
         wheel4.localEulerAngles = wheelRotation2;
+    }
+
+    public void Fire()
+    {
+        if(cdFire >= canFire)
+        {
+            var spawnBullet = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+
+            Shot2 fireBullet = spawnBullet.GetComponent<Shot2>();
+
+            fireBullet.Fly(firePoint2.forward, torQueForce);
+
+            cdFire = 0;
+        }
+
     }
 }
