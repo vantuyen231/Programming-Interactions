@@ -16,7 +16,7 @@ public class Shot2 : MonoBehaviour
     public void Fly(Vector3 flyDirection, float torQue)
     {
         Rigidbody rbBullet = GetComponent<Rigidbody>();
-        rbBullet.AddTorque(Random.insideUnitSphere * torQue, ForceMode.Impulse);
+        rbBullet.AddTorque(Random.insideUnitSphere.normalized * torQue, ForceMode.Impulse);
         rbBullet.AddForce (flyDirection * bulletSpeed, ForceMode.Impulse);
         Destroy(gameObject, timeLife);
     }

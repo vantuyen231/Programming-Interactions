@@ -541,6 +541,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7650450665247400326, guid: 576907a156eb44e6c9145004d88dc32a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1870609659}
+    - targetCorrespondingSourceObject: {fileID: 7650450665247400326, guid: 576907a156eb44e6c9145004d88dc32a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1870609664}
   m_SourcePrefab: {fileID: 100100000, guid: 576907a156eb44e6c9145004d88dc32a, type: 3}
 --- !u!1 &1870609658 stripped
 GameObject:
@@ -559,6 +562,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ca51674080d7a429a0fccc298caba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  isShowMainMenu: 1
+  canvasGroup: {fileID: 1870609664}
+--- !u!225 &1870609664
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870609658}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

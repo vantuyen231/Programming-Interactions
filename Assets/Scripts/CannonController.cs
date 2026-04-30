@@ -48,6 +48,7 @@ public class CannonController : MonoBehaviour
     {
         _simpleControls.Enable(); 
         _simpleControls.gameplay.fire.performed += ctx => { DoFire(); };
+        _simpleControls.gameplay.menu.performed += ctx => { MenuManager.Instance.Show(); };
     }
 
     private void OnDisable()
@@ -97,5 +98,10 @@ public class CannonController : MonoBehaviour
             rbBullet.AddTorque(Random.insideUnitSphere.normalized * projectileForce, ForceMode.Impulse);
             rbBullet.AddForce(firePoint.transform.forward * bulletSpeed, ForceMode.Impulse);
         }
+    }
+
+    private void ShowMenu()
+    {
+        //MenuManager.Instance()
     }
 }
