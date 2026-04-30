@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CannonController_02 : MonoBehaviour
@@ -33,6 +34,11 @@ public class CannonController_02 : MonoBehaviour
     [SerializeField] protected float canFire = 2f;
     [SerializeField] protected float cdFire = 0f;
 
+    [Header("Many Bullet")]
+    [SerializeField] protected TMP_Text countBullet;
+    [SerializeField] protected int countBulletMax = 8;
+    [SerializeField] protected GameObject noAmmo;
+
 
     private void Awake()
     {
@@ -40,12 +46,15 @@ public class CannonController_02 : MonoBehaviour
         _turnCannon = transform.localEulerAngles;
         turnBarrelMax += _turnCannon.y;
         turnBarrelMin += _turnCannon.y;
+        UpdateCountBullet();
     }
 
     private void OnEnable()
     {
         _simpleControls2.Enable();
         _simpleControls2.gameplay.fire.performed += ctx => Fire();
+        _simpleControls2.gameplay.menu.performed += ctx => { MenuManager.Instance.Show(); };
+        _simpleControls2.gameplay.reload.performed += ctx => ReloadBullet();
     }
 
     private void OnDisable()
@@ -94,7 +103,7 @@ public class CannonController_02 : MonoBehaviour
 
     public void Fire()
     {
-        if(cdFire >= canFire)
+        if(cdFire >= canFire&&countBulletMax>0)
         {
             var spawnBullet = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
 
@@ -103,7 +112,31 @@ public class CannonController_02 : MonoBehaviour
             fireBullet.Fly(firePoint2.forward, torQueForce);
 
             cdFire = 0;
+            countBulletMax--;
+            UpdateCountBullet();
         }
 
+    }
+
+    private void UpdateCountBullet()
+    {
+        countBullet.text = countBulletMax.ToString();
+        if(countBulletMax <= 0)
+        {
+            noAmmo.SetActive(true);
+        }
+        else
+        {
+            noAmmo.SetActive(false);
+        }
+    }
+
+    private void ReloadBullet()
+    {
+        if (countBulletMax<=0)
+        {
+            countBulletMax = 8;
+        }
+        UpdateCountBullet();
     }
 }

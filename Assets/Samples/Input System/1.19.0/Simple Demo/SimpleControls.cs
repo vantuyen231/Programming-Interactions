@@ -127,6 +127,15 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""e79412ad-fcbf-4fd9-9b29-e9a80e725476"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -261,6 +270,17 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
                     ""action"": ""menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ec143ee-7bbf-4ce5-8c2a-340171884aca"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -273,6 +293,7 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
         m_gameplay_move = m_gameplay.FindAction("move", throwIfNotFound: true);
         m_gameplay_look = m_gameplay.FindAction("look", throwIfNotFound: true);
         m_gameplay_menu = m_gameplay.FindAction("menu", throwIfNotFound: true);
+        m_gameplay_reload = m_gameplay.FindAction("reload", throwIfNotFound: true);
     }
 
     ~@SimpleControls()
@@ -357,6 +378,7 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_move;
     private readonly InputAction m_gameplay_look;
     private readonly InputAction m_gameplay_menu;
+    private readonly InputAction m_gameplay_reload;
     /// <summary>
     /// Provides access to input actions defined in input action map "gameplay".
     /// </summary>
@@ -384,6 +406,10 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "gameplay/menu".
         /// </summary>
         public InputAction @menu => m_Wrapper.m_gameplay_menu;
+        /// <summary>
+        /// Provides access to the underlying input action "gameplay/reload".
+        /// </summary>
+        public InputAction @reload => m_Wrapper.m_gameplay_reload;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -422,6 +448,9 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
             @menu.started += instance.OnMenu;
             @menu.performed += instance.OnMenu;
             @menu.canceled += instance.OnMenu;
+            @reload.started += instance.OnReload;
+            @reload.performed += instance.OnReload;
+            @reload.canceled += instance.OnReload;
         }
 
         /// <summary>
@@ -445,6 +474,9 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
             @menu.started -= instance.OnMenu;
             @menu.performed -= instance.OnMenu;
             @menu.canceled -= instance.OnMenu;
+            @reload.started -= instance.OnReload;
+            @reload.performed -= instance.OnReload;
+            @reload.canceled -= instance.OnReload;
         }
 
         /// <summary>
@@ -513,5 +545,12 @@ public partial class @SimpleControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "reload" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnReload(InputAction.CallbackContext context);
     }
 }
