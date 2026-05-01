@@ -20,8 +20,14 @@ public class Shot : MonoBehaviour
         var _radiusExplosion = Physics.OverlapSphere(collision.contacts[0].point, explosionRadius);
         foreach(var rb in _radiusExplosion)
         {
+            var ragdoll = rb.GetComponent<Ragdoll>();
             if (rb.CompareTag("Target"))
             {
+                ragdoll.EnableRagdoll();
+                foreach(var rbRagdoll in ragdoll.rigidbodies)
+                {
+                    rbRagdoll.AddExplosionForce(explosionDamge, collision.contacts[0].point, explosionRadius, upWrand, ForceMode.Impulse);
+                }
                 rb.GetComponent<Rigidbody>().AddExplosionForce(explosionDamge,collision.contacts[0].point,explosionRadius,upWrand,ForceMode.Impulse);
             }
         }
