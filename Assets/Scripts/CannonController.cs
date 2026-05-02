@@ -99,9 +99,4 @@ public class CannonController : MonoBehaviour
             rbBullet.AddForce(firePoint.transform.forward * bulletSpeed, ForceMode.Impulse);
         }
     }
-
-    private void ShowMenu()
-    {
-        //MenuManager.Instance()
-    }
 }

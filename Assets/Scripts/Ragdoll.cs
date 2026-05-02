@@ -5,9 +5,15 @@ public class Ragdoll : MonoBehaviour
 {
     [SerializeField] protected bool isRagdoll = false;
     [SerializeField] protected Animator animator;
+
+    [SerializeField] public CapsuleCollider capsuleCollider;
+
+    [SerializeField] protected bool isSitting = false;
+    [SerializeField] protected bool isDancing = false;
+
+    [Header("List")]
     [SerializeField] public List<Rigidbody> rigidbodies = new List<Rigidbody>();
     [SerializeField] public List<Collider> colliders = new List<Collider>();
-    [SerializeField] public CapsuleCollider capsuleCollider;
 
     private void Awake()
     {
@@ -25,13 +31,11 @@ public class Ragdoll : MonoBehaviour
             colliders[i].isTrigger = true;
         }
         capsuleCollider.isTrigger = false;
+        UpdateAnimation();
     }
     //private void Update()
     //{
-    //    if (isRagdoll)
-    //    {
-    //        EnableRagdoll();
-    //    }
+    //    UpdateAnimation();
     //}
 
     public void EnableRagdoll()
@@ -45,5 +49,12 @@ public class Ragdoll : MonoBehaviour
         }
         capsuleCollider.isTrigger = true;
         animator.enabled = false;
+    }
+
+    private void UpdateAnimation()
+    {
+        if(animator == null || !animator.enabled) { return; }
+        animator.SetBool("isSit",isSitting);
+        animator.SetBool("isDance", isDancing);
     }
 }
