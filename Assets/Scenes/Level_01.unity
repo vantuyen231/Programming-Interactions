@@ -9015,6 +9015,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1895808927420028092, guid: e0307081c164aaf4a90933f08206654c, type: 3}
   m_PrefabInstance: {fileID: 538806743}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &554727749
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.40141556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99572057
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -105.50939
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399236723037677235, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_Name
+      value: RagdollRobot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
 --- !u!1001 &563288957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13949,6 +14006,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814845269}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &817612991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 416188126109868210, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: isDancing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.16890812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6199844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -97.9623
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399236723037677235, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_Name
+      value: RagdollRobot (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
 --- !u!1001 &818877643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16650,7 +16768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &988983269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24421,7 +24539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1413628611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26827,6 +26945,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1636445882562246037, guid: f7edb8f477d29c841a302d5c4a1588ea, type: 3}
   m_PrefabInstance: {fileID: 1580481511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1582740127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 416188126109868210, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: isSitting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.1621537
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28348
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -100.17794
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414474238143944783, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399236723037677235, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
+      propertyPath: m_Name
+      value: RagdollRobot (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e69e56fce022ff4cacb792bb1c539fc, type: 3}
 --- !u!1001 &1584428790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33529,8 +33708,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948017806}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.9995973, y: 3.9565375, z: -87.81916}
+  m_LocalRotation: {x: -0.0000000074453426, y: 0.9887258, z: -0.14973755, w: -0.000000049162033}
+  m_LocalPosition: {x: -2.9995975, y: 4.7065372, z: -86.81916}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43434,3 +43613,6 @@ SceneRoots:
   - {fileID: 1565843090}
   - {fileID: 1490175638}
   - {fileID: 2039356718}
+  - {fileID: 554727749}
+  - {fileID: 1582740127}
+  - {fileID: 817612991}

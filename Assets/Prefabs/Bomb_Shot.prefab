@@ -155,3 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shot
   timeLife: 4
   _explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  explosionDamge: 10
+  explosionRadius: 5
+  upWrand: 1

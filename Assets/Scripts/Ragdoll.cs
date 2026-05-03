@@ -4,10 +4,11 @@ using UnityEngine;
 public class Ragdoll : MonoBehaviour
 {
     [SerializeField] protected bool isRagdoll = false;
-    [SerializeField] protected Animator animator;
 
     [SerializeField] public CapsuleCollider capsuleCollider;
 
+    [Header("Animator")]
+    [SerializeField] protected Animator animator;
     [SerializeField] protected bool isSitting = false;
     [SerializeField] protected bool isDancing = false;
 
@@ -15,10 +16,16 @@ public class Ragdoll : MonoBehaviour
     [SerializeField] public List<Rigidbody> rigidbodies = new List<Rigidbody>();
     [SerializeField] public List<Collider> colliders = new List<Collider>();
 
+    [Header("Audio")]
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] protected int pitchMax = 3;
+    [SerializeField] protected int pitchMin = 1;
     private void Awake()
     {
         TryGetComponent(out animator);
         TryGetComponent(out capsuleCollider);
+        TryGetComponent(out audioSource);
+
 
         if(animator == null) return;
 
@@ -40,8 +47,11 @@ public class Ragdoll : MonoBehaviour
 
     public void EnableRagdoll()
     {
+        if(isRagdoll) { return; }
         isRagdoll = !isRagdoll;
-        for(int i = 0; i < rigidbodies.Count; i++)
+        audioSource.pitch = Random.Range(pitchMin, pitchMax);
+        audioSource.Play();
+        for (int i = 0; i < rigidbodies.Count; i++)
         {
             rigidbodies[i].isKinematic = false;
             rigidbodies[i].linearVelocity = Vector3.zero;
